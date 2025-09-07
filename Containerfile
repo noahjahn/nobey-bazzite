@@ -367,7 +367,7 @@ RUN --mount=type=cache,dst=/var/cache \
     cp -r /tmp/scopebuddy/ScopeBuddy-*/bin/* /usr/bin/ && \
     /ctx/cleanup
 
-RUN curl -L -o alsa-ucm-conf.tar.gz https://github.com/alsa-project/alsa-ucm-conf/archive/refs/heads/master.tar.gz && \
+RUN curl -L -o alsa-ucm-conf.tar.gz https://github.com/geoffreybennett/alsa-ucm-conf/archive/refs/heads/master.tar.gz && \
     tar xvzf alsa-ucm-conf.tar.gz -C /usr/share/alsa --strip-components=1 --wildcards "*/ucm" "*/ucm2" && \
     rm -f alsa-ucm-conf.tar.gz
 
