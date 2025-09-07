@@ -367,6 +367,10 @@ RUN --mount=type=cache,dst=/var/cache \
     cp -r /tmp/scopebuddy/ScopeBuddy-*/bin/* /usr/bin/ && \
     /ctx/cleanup
 
+RUN curl -L -o alsa-ucm-conf.tar.gz https://github.com/alsa-project/alsa-ucm-conf/archive/refs/heads/master.tar.gz && \
+    tar xvzf alsa-ucm-conf.tar.gz -C /usr/share/alsa --strip-components=1 --wildcards "*/ucm" "*/ucm2" && \
+    rm -f alsa-ucm-conf.tar.gz
+
 # Install Steam & Lutris, plus supporting packages
 # Downgrade ibus to fix an issue with the Steam keyboard
 RUN --mount=type=cache,dst=/var/cache \
